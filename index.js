@@ -41,7 +41,7 @@ const alwaysClosest = (citiesQueue, route = []) => {
   return alwaysClosest(newCityQueue, route)
 }
 
-fs.createReadStream('cities_partial.csv')
+fs.createReadStream('cities_all.csv')
   .pipe(csv())
   .on('data', (row) => {
     allCities.push(new City(row.City, row.State, row.Latitude, row.Longitude))
