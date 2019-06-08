@@ -20,7 +20,7 @@ const alwaysClosest = (citiesQueue, route = []) => {
 
   let currentCity
 
-  if (route.length === 0) {
+  if (!route.length) {
     currentCity = head(citiesQueue)
     route.push({
       distance: 0,
@@ -35,12 +35,13 @@ const alwaysClosest = (citiesQueue, route = []) => {
   const sortedDistances = sortBy(cityDistances, ['distance'])
   const closestCity = head(sortedDistances)
   const newCityQueue = removeCity(citiesQueue, closestCity.city)
+
   route.push(closestCity)
 
   return alwaysClosest(newCityQueue, route)
 }
 
-fs.createReadStream('cities_all.csv')
+fs.createReadStream('cities_partial.csv')
   .pipe(csv())
   .on('data', (row) => {
     allCities.push(new City(row.City, row.State, row.Latitude, row.Longitude))

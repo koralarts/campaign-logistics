@@ -1,11 +1,11 @@
 const chalk = require('chalk')
 
 const calculateDistance = (lat1, long1, lat2, long2, unit = 'K') => {
-  var radlat1 = Math.PI * lat1/180
-  var radlat2 = Math.PI * lat2/180
-  var theta = long1 - long2
-  var radtheta = Math.PI * theta/180
-  var dist =
+  const radlat1 = Math.PI * lat1/180
+  const radlat2 = Math.PI * lat2/180
+  const theta = long1 - long2
+  const radtheta = Math.PI * theta/180
+  let dist =
     Math.sin(radlat1) * Math.sin(radlat2) +
     Math.cos(radlat1) * Math.cos(radlat2) *
     Math.cos(radtheta)
